@@ -5,13 +5,16 @@ class phone {
     static String manufacturer_country;
 
     public void show(){
-        system.out.printf(name +  ": " + year + ": " + price + " : ")
+        System.out.printf(name +  ": " + year + ": " + price + " : ");
     }
 }
 
 
 public class Static_Var {
     public static void mian(String ar[]){
+        phone ph1= new phone():
+        ph1.name= "Apple ";
+        
 
     }
 }
