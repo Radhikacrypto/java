@@ -26,5 +26,7 @@ public class Static_Var {
         System.out.printf(" the static variablw will be change now showing static variable for ph1"+ ph1.manufacturer_country); 
         System.out.printf(" the static variable for ph2 is : "+ph3.manufacturer_country);
 
+        
+
     }
 }
