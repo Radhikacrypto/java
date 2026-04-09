@@ -18,6 +18,6 @@ class Encapsulated_method{
         Student s1= new Student();
         // s1.age = something not allowed 
          
-m
+
     }
 }
