@@ -3,7 +3,7 @@ public class Calc{
     int val2;
 
     //constructor for default values
-    Calc(){
+     public Calc(){
 
         val1= 0;
         val2 = 0;
