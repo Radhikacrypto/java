@@ -1,0 +1,130 @@
+Good—you’re very close 👍 The issue is actually a **logic + inheritance mistake**, not a syntax error.
+
+---
+
+# ❌ Main Problem
+
+In your `Demo` class you wrote:
+
+```java
+Calc1.setValues(30, 20);
+int result = Calc1.add();
+```
+
+But:
+
+### 🔴 `setValues()` (in `AdvCal`)
+
+```java
+this.a = a;
+this.b = b;
+```
+
+### 🔴 `add()` (from `Calc`)
+
+```java
+int result = val1 + val2;
+```
+
+👉 **Problem:**
+You are setting **`a` and `b`**, but `add()` uses **`val1` and `val2`**
+
+So:
+
+* `a = 30`, `b = 20` ✅
+* `val1 = 0`, `val2 = 0` ❌ (never set)
+
+👉 Output will be:
+
+```
+0
+```
+
+---
+
+# ✅ Fix Option 1 (BEST – Use parent variables)
+
+Modify `setValues()` in `AdvCal` like this:
+
+```java
+public void setValues(int a, int b){
+    this.val1 = a;
+    this.val2 = b;
+}
+```
+
+👉 Now:
+
+* `add()` → works ✅
+* `subtract()` → works ✅
+* No duplicate variables needed
+
+---
+
+# ✅ Fix Option 2 (Call parent method)
+
+Instead of rewriting logic:
+
+```java
+public void setValues(int a, int b){
+    setVal(a, b);  // calling parent method
+}
+```
+
+👉 Cleaner and better 👍
+
+---
+
+# ❌ Another Design Issue (Important)
+
+In `AdvCal` you declared:
+
+```java
+int a;
+int b;
+```
+
+👉 This is **bad design** because:
+
+* You already have `val1`, `val2` from parent
+* You're duplicating data unnecessarily
+
+---
+
+# ✅ Best Clean Version of `AdvCal`
+
+```java
+public class AdvCal extends Calc {
+
+    public void setValues(int a, int b){
+        setVal(a, b);
+    }
+
+    public int multiply(){
+        return val1 * val2;
+    }
+}
+```
+
+---
+
+# 🧠 Key Concept (VERY IMPORTANT)
+
+👉 **Inheritance means reuse, not duplication**
+
+* Parent (`Calc`) → already has `val1`, `val2`
+* Child (`AdvCal`) → should use them, not create new ones
+
+---
+
+# 🔥 Final Output (after fix)
+
+```java
+30 + 20 = 50
+```
+
+---
+
+If you want next step:
+👉 I can show you **how to use constructors instead of setters (more professional way)**
+👉 Or explain **super keyword + constructor chaining** (very important for interviews)
