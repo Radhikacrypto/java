@@ -108,6 +108,7 @@ public class oxygenPlants {
 
         if(length <= 0){
             System.out.println("Invalid length");
+            sc.close();
             return;
         }
 
@@ -116,6 +117,7 @@ public class oxygenPlants {
 
         if (breadth <= 0) {
             System.out.println("Invalid breadth");
+            sc.close();
             return;
         }
 
@@ -124,6 +126,7 @@ public class oxygenPlants {
 
         if (plantArea <= 0) {
             System.out.println("Invalid plant area");
+            sc.close();
             return;
         }
 
@@ -136,6 +139,7 @@ public class oxygenPlants {
 
         System.out.println("Total number of plants is " + totalPlants);
         System.out.printf("Total oxygen production is %.2f litres", totalOxygenProduction);
+        sc.close();
     }
     
 }
