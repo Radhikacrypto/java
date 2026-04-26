@@ -134,6 +134,6 @@ public class bmi {
             System.out.printf("Your BMI is %.2f. You are underweight\n", bmi);
             System.out.printf("Gain %.2f to be fit", (18.5 - bmi));
         }
-
+      sc.close();
     }
 }
